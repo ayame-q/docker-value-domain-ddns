@@ -1,0 +1,13 @@
+version: "3"
+services:
+  cron:
+    build:
+      context: src
+    environment:
+      TZ: ${TZ-Asia/Tokyo}
+      DOMAIN: ${DOMAIN:?domain name.}
+      PASSWORD: ${PASSWORD:?domain password.}
+      HOST: ${HOST-@}
+      REFRESH_CYCLE: ${REFRESH_CYCLE-10}
+    env_file:
+      - ".env"
